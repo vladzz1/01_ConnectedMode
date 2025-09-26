@@ -12,7 +12,7 @@ using _05_IntroToEF;
 namespace _07_AirportDataAccess.Migrations
 {
     [DbContext(typeof(AirportDbContext))]
-    [Migration("20250925163258_Init")]
+    [Migration("20250926064704_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -211,7 +211,7 @@ namespace _07_AirportDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AirplaneType");
+                    b.ToTable("AirplaneTypes");
                 });
 
             modelBuilder.Entity("_07_AirportDataAccess.Entities.City", b =>
@@ -232,7 +232,7 @@ namespace _07_AirportDataAccess.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("City");
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("_07_AirportDataAccess.Entities.Country", b =>
@@ -248,7 +248,7 @@ namespace _07_AirportDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Country");
+                    b.ToTable("Countries");
                 });
 
             modelBuilder.Entity("CityFlight", b =>

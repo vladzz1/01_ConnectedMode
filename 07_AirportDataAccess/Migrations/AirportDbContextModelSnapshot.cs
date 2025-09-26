@@ -208,7 +208,7 @@ namespace _07_AirportDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AirplaneType");
+                    b.ToTable("AirplaneTypes");
                 });
 
             modelBuilder.Entity("_07_AirportDataAccess.Entities.City", b =>
@@ -229,7 +229,7 @@ namespace _07_AirportDataAccess.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("City");
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("_07_AirportDataAccess.Entities.Country", b =>
@@ -245,7 +245,7 @@ namespace _07_AirportDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Country");
+                    b.ToTable("Countries");
                 });
 
             modelBuilder.Entity("CityFlight", b =>

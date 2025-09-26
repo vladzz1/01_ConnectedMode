@@ -14,7 +14,7 @@ namespace _07_AirportDataAccess.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "AirplaneType",
+                name: "AirplaneTypes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -23,11 +23,11 @@ namespace _07_AirportDataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AirplaneType", x => x.Id);
+                    table.PrimaryKey("PK_AirplaneTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Country",
+                name: "Countries",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -36,7 +36,7 @@ namespace _07_AirportDataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Country", x => x.Id);
+                    table.PrimaryKey("PK_Countries", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -70,15 +70,15 @@ namespace _07_AirportDataAccess.Migrations
                 {
                     table.PrimaryKey("PK_Airplanes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Airplanes_AirplaneType_AirplaneTypeId",
+                        name: "FK_Airplanes_AirplaneTypes_AirplaneTypeId",
                         column: x => x.AirplaneTypeId,
-                        principalTable: "AirplaneType",
+                        principalTable: "AirplaneTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "City",
+                name: "Cities",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -88,11 +88,11 @@ namespace _07_AirportDataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_City", x => x.Id);
+                    table.PrimaryKey("PK_Cities", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_City_Country_CountryId",
+                        name: "FK_Cities_Countries_CountryId",
                         column: x => x.CountryId,
-                        principalTable: "Country",
+                        principalTable: "Countries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -132,9 +132,9 @@ namespace _07_AirportDataAccess.Migrations
                 {
                     table.PrimaryKey("PK_CityFlight", x => new { x.CitiesId, x.FlightsNumber });
                     table.ForeignKey(
-                        name: "FK_CityFlight_City_CitiesId",
+                        name: "FK_CityFlight_Cities_CitiesId",
                         column: x => x.CitiesId,
-                        principalTable: "City",
+                        principalTable: "Cities",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -194,8 +194,8 @@ namespace _07_AirportDataAccess.Migrations
                 column: "AirplaneTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_City_CountryId",
-                table: "City",
+                name: "IX_Cities_CountryId",
+                table: "Cities",
                 column: "CountryId");
 
             migrationBuilder.CreateIndex(
@@ -224,7 +224,7 @@ namespace _07_AirportDataAccess.Migrations
                 name: "ClientFlight");
 
             migrationBuilder.DropTable(
-                name: "City");
+                name: "Cities");
 
             migrationBuilder.DropTable(
                 name: "Flights");
@@ -233,13 +233,13 @@ namespace _07_AirportDataAccess.Migrations
                 name: "Passangers");
 
             migrationBuilder.DropTable(
-                name: "Country");
+                name: "Countries");
 
             migrationBuilder.DropTable(
                 name: "Airplanes");
 
             migrationBuilder.DropTable(
-                name: "AirplaneType");
+                name: "AirplaneTypes");
         }
     }
 }
