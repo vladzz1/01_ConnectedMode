@@ -9,10 +9,6 @@ namespace _05_IntroToEF
     {
         //C       R    U       D 
         //Create Read Update Delede
-        public AirportDbContext()
-        {
-           
-        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
